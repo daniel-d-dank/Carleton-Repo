@@ -1,10 +1,10 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class AddressBook {
-    private LinkedList<BuddyInfo> buddies;
+    private ArrayList<BuddyInfo> buddies;
 
     public AddressBook() {
-        buddies = new LinkedList<BuddyInfo>();
+        buddies = new ArrayList<BuddyInfo>();
     }
 
     public static void main(String[] args){
@@ -12,13 +12,20 @@ public class AddressBook {
         BuddyInfo buddy = new BuddyInfo("Dan","Carleton","613");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        addressBook.removeBuddy(buddy);
+        addressBook.removeBuddy(0);
     }
     public void addBuddy(BuddyInfo buddy) {
-        buddies.add(buddy);
+        if(buddy != null) {
+            buddies.add(buddy);
+        }
     }
 
-    public void removeBuddy(BuddyInfo buddy) {
-        buddies.remove();
+    public BuddyInfo removeBuddy(int index) {
+        if(index >= 0 && index < buddies.size()){
+            return buddies.remove(index);
+        }
+        return null;
     }
+
+    //added note for git
 }
